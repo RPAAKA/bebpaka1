@@ -190,6 +190,10 @@ p {
   border-radius: var(--size-border-radius);
 }
 
+.home_contact:hover {
+  background-color: var(--color-blue);
+}
+
 /* Section common */
 .section {
   padding: 50px;
@@ -246,7 +250,7 @@ p {
 }
 
 .job_description {
-  margin: 0 100px;
+  margin: 0 30px;
   text-align: left;
 }
 
@@ -326,6 +330,7 @@ p {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
 }
 
 .category_btn.selected,
@@ -348,9 +353,9 @@ p {
   height: 24px;
   line-height: 24px; /* 동그라미 안의 숫자를 높이랑 맞춰주면 이쁘게 가운데로 만들어줌~*/
   display: inline-block;
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 40px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -430,19 +435,18 @@ p {
 
 .testimonials {
   margin: 40px;
-  align-items: center;
 }
 
 .testimonial {
   display: flex;
-  margin: 32px 128px;
+  justify-content: space-evenly;
+  margin: 32px 0;
 }
 
 .testimonial_avatar {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin: auto;
 }
 
 .testimonial_avatar:nth-child(odd) {
@@ -521,17 +525,30 @@ p {
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
+
   .navbar_toggle-btn {
     display: block;
+    top: 16px;
+    right: 16px;
+    font-size: var(--font-small);
   }
 
   #navbar {
     flex-direction: column;
-    background-color: var(--color-light-white);
+    padding: 10px;
+    background-color: var(--color-white);
   }
 
   #navbar.navbar--dark {
-    padding: 16px;
+    padding: 10px;
   }
 
   .navbar_menu {
@@ -545,24 +562,76 @@ p {
     display: block;
   }
 
+  .section {
+    padding-top: 40px;
+  }
+
   .about_majors {
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
 
   .major {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
+  }
+
+  .job_description {
+    text-align: left;
+  }
+
+  .job_name,
+  .job_period {
+    font-size: small;
+  }
+
+  .job_logo {
+    width: 100px;
+    margin-left: 40px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category_btn {
+    margin: 4px 0;
+    width: 100%;
+  }
+
   .project {
     flex-grow: 1; /* flex-grow: 1; <- 모바일 화면에 최적화 시키는 것 */
   }
 
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .testimonial_avatar {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .testimonial_speech-bubble {
+    order: 1;
+  }
+
+  .testimonial_avatar:nth-child(even) {
+    margin: 0px;
+    margin-bottom: 20px;
+  }
+  .testimonial_avatar:nth-child(odd) {
+    margin: 0px;
+    margin-bottom: 20px;
+  }
+
+  .arrow-up {
+    bottom: 16px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
   }
 }
